@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Visuya - Credit Card Guide | Best Credit Cards in English</title>
+<meta name="description" content="All credit card reviews, comparisons, and financial tips. Best credit cards India 2025, credit score tips Telugu lo.">
+<meta name="keywords" content="credit card india, best credit card india, credit card review, credit score india, hdfc credit card, sbi credit card">
+<meta name="author" content="Visuya">
+<meta property="og:title" content="Visuya - Credit Card Guide">
+<meta property="og:description" content="All credit card reviews, comparisons and tips in one place">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://visuya.com">
+<meta property="og:image" content="https://visuya.com/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Visuya - Credit Card Guide">
+<meta name="twitter:description" content="Credit card reviews and tips">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://visuya.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter&family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=Noto+Sans+Telugu:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+<style>
+:root {
+  --bg: #f7f5f0;
+  --bg2: #ffffff;
+  --bg3: #edeae3;
+  --text: #1a1814;
+  --text2: #5a5650;
+  --text3: #9a9590;
+  --accent: #c8341a;
+  --accent2: #e8491f;
+  --gold: #d4921a;
+  --border: #ddd9d0;
+  --card-shadow: 0 2px 20px rgba(0,0,0,0.07);
+  --radius: 16px;
+  --radius-sm: 10px;
+  --font-display: 'Inter', 'Playfair Display', serif;
+  --font-body: 'DM Sans', 'Inter', sans-serif;
+  --nav-h: 68px;
+}
+[data-theme="dark"] {
+  --bg: #0f0e0c;
+  --bg2: #1a1916;
+  --bg3: #252320;
+  --text: #f0ede6;
+  --text2: #a8a49c;
+  --text3: #6a6660;
+  --border: #2e2c28;
+  --card-shadow: 0 2px 20px rgba(0,0,0,0.3);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: auto; }
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.6;
+  transition: background 0.3s, color 0.3s;
+  min-height: 100vh;
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  height: var(--nav-h);
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  z-index: 1000;
+  display: flex; align-items: center;
+  padding: 0 24px;
+  gap: 16px;
+}
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 900;
+  color: var(--accent);
+  text-decoration: none;
+  letter-spacing: -0.5px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.nav-logo span { color: var(--text); }
+.nav-search {
+  flex: 1;
+  max-width: 420px;
+  position: relative;
+}
+.nav-search input {
+  width: 100%;
+  padding: 9px 16px 9px 38px;
+  border: 1.5px solid var(--border);
+  border-radius: 99px;
+  background: var(--bg3);
+  color: var(--text);
+  font-size: 13px;
+  font-family: var(--font-body);
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+.nav-search input:focus { border-color: var(--accent); background: var(--bg2); }
+.nav-search input::placeholder { color: var(--text3); }
+.search-icon {
+  position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
+  width: 16px; height: 16px; color: var(--text3);
+  pointer-events: none;
+}
+.nav-right { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+.theme-btn {
+  width: 38px; height: 38px;
+  border-radius: 99px;
+  border: 1.5px solid var(--border);
+  background: var(--bg3);
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px;
+  transition: all 0.2s;
+  color: var(--text);
+}
+.theme-btn:hover { background: var(--border); }
+.admin-btn {
+  padding: 8px 16px;
+  border-radius: 99px;
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: var(--font-body);
+}
+.admin-btn:hover { background: var(--accent2); transform: translateY(-1px); }
+
+/* PAGES */
+.page { display: none; padding-top: var(--nav-h); min-height: 100vh; }
+.page.active { display: block; }
+
+/* HOME PAGE */
+.hero {
+  background: var(--bg2);
+  padding: 64px 24px 48px;
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(200,52,26,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-tag {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 99px;
+  border: 1.5px solid rgba(200,52,26,0.3);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  background: rgba(200,52,26,0.05);
+}
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 6vw, 56px);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+.hero h1 em { color: var(--accent); font-style: normal; }
+.hero p {
+  color: var(--text2);
+  max-width: 520px;
+  margin: 0 auto 32px;
+  font-size: 16px;
+}
+.hero-stats {
+  display: flex; justify-content: center; gap: 40px;
+  flex-wrap: wrap;
+}
+.stat { text-align: center; }
+.stat-num {
+  font-family: var(--font-display);
+  font-size: 28px; font-weight: 700;
+  color: var(--accent);
+  display: block;
+}
+.stat-label { font-size: 12px; color: var(--text3); font-weight: 500; }
+
+/* CATEGORIES */
+.categories {
+  padding: 32px 24px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.cat-scroll {
+  display: flex; gap: 8px; overflow-x: auto;
+  padding-bottom: 4px;
+  scrollbar-width: none;
+}
+.cat-scroll::-webkit-scrollbar { display: none; }
+.cat-chip {
+  flex-shrink: 0;
+  padding: 7px 16px;
+  border-radius: 99px;
+  border: 1.5px solid var(--border);
+  background: var(--bg2);
+  color: var(--text2);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.cat-chip:hover, .cat-chip.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+/* POSTS GRID */
+.posts-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 24px 64px;
+}
+.section-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 24px;
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: 22px; font-weight: 700;
+  color: var(--text);
+}
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+.post-card {
+  background: var(--bg2);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.25s;
+  box-shadow: var(--card-shadow);
+  /* animation removed */
+}
+.post-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+  border-color: rgba(200,52,26,0.2);
+}
+
+.card-img {
+  width: 100%; aspect-ratio: 1200 / 628; height: auto;
+  object-fit: cover;
+  background: var(--bg3);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 48px;
+  position: relative;
+  overflow: hidden;
+}
+.card-img-emoji {
+  width: 100%; aspect-ratio: 1200 / 628; height: auto;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 56px;
+  background: linear-gradient(135deg, var(--bg3) 0%, var(--bg) 100%);
+}
+.card-body { padding: 18px; }
+.card-category {
+  font-size: 11px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.8px;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.card-title {
+  font-family: var(--font-display);
+  font-size: 17px; font-weight: 700;
+  line-height: 1.3;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+.card-excerpt {
+  font-size: 13px; color: var(--text2);
+  line-height: 1.5;
+  margin-bottom: 14px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.card-footer {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+.card-date { font-size: 11px; color: var(--text3); }
+.card-read {
+  font-size: 11px; font-weight: 600; color: var(--accent);
+  display: flex; align-items: center; gap: 4px;
+}
+.rating-stars { color: var(--gold); font-size: 12px; }
+
+/* FEATURED CARD */
+.post-card.featured {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.post-card.featured .card-img-emoji {
+  height: 100%;
+  min-height: 220px;
+  font-size: 80px;
+}
+.post-card.featured .card-title { font-size: 22px; }
+.post-card.featured .card-excerpt { -webkit-line-clamp: 3; }
+
+/* EMPTY STATE */
+.empty-state {
+  text-align: center;
+  padding: 80px 24px;
+  color: var(--text3);
+  grid-column: 1 / -1;
+}
+.empty-icon { font-size: 56px; margin-bottom: 16px; }
+.empty-state h3 { font-size: 18px; color: var(--text2); margin-bottom: 8px; }
+
+/* POST DETAIL PAGE */
+.post-detail {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 48px 24px 80px;
+}
+.post-detail-back {
+  display: inline-flex; align-items: center; gap: 6px;
+  color: var(--text2); font-size: 13px; font-weight: 500;
+  cursor: pointer; margin-bottom: 32px;
+  transition: color 0.2s;
+  background: none; border: none;
+}
+.post-detail-back:hover { color: var(--accent); }
+.post-detail-category {
+  font-size: 12px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 1px;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+.post-detail h1 {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 4vw, 38px);
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  margin-bottom: 20px;
+}
+.post-meta {
+  display: flex; align-items: center; gap: 16px;
+  padding: 16px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 36px;
+  color: var(--text3);
+  font-size: 13px;
+  flex-wrap: wrap;
+}
+.post-meta-item { display: flex; align-items: center; gap: 5px; }
+.post-hero-img {
+  width: 100%; border-radius: var(--radius);
+  aspect-ratio: 1200 / 628; height: auto; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 96px;
+  background: var(--bg3);
+  margin-bottom: 36px;
+}
+.post-content {
+  font-size: 16px; line-height: 1.8;
+  color: var(--text);
+}
+.post-content h2 {
+  font-family: var(--font-display);
+  font-size: 22px; font-weight: 700;
+  margin: 32px 0 12px;
+  color: var(--text);
+}
+.post-content p { margin-bottom: 16px; color: var(--text2); }
+.post-content ul {
+  padding-left: 20px;
+  margin-bottom: 16px;
+  color: var(--text2);
+}
+.post-content ul li { margin-bottom: 8px; }
+.info-box {
+  background: rgba(200,52,26,0.05);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 16px 20px;
+  margin: 24px 0;
+}
+.info-box p { margin: 0; color: var(--text2); font-size: 14px; }
+.rating-box {
+  background: var(--bg3);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin: 28px 0;
+  text-align: center;
+}
+.big-rating {
+  font-family: var(--font-display);
+  font-size: 56px; font-weight: 900;
+  color: var(--accent);
+}
+.rating-label { color: var(--text2); font-size: 13px; margin-top: 4px; }
+.pros-cons {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 16px; margin: 24px 0;
+}
+.pros, .cons {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+}
+.pros h4 { color: #16a34a; margin-bottom: 8px; font-size: 14px; }
+.cons h4 { color: var(--accent); margin-bottom: 8px; font-size: 14px; }
+.pros li, .cons li { font-size: 13px; color: var(--text2); margin-bottom: 6px; list-style: none; padding-left: 0; }
+.pros li::before { content: '✓ '; color: #16a34a; font-weight: 700; }
+.cons li::before { content: '✗ '; color: var(--accent); font-weight: 700; }
+
+/* TOAST */
+.toast {
+  position: fixed; bottom: 24px; left: 50%;
+  transform: translateX(-50%) translateY(80px);
+  background: var(--text);
+  color: var(--bg);
+  padding: 12px 24px;
+  border-radius: 99px;
+  font-size: 13px;
+  font-weight: 500;
+  z-index: 9999;
+  transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+  white-space: nowrap;
+  pointer-events: none;
+}
+.toast.show { transform: translateX(-50%) translateY(0); }
+.toast.success { background: #16a34a; color: #fff; }
+.toast.error { background: #dc2626; color: #fff; }
+
+/* SEARCH RESULTS */
+.search-count { font-size: 13px; color: var(--text3); margin-bottom: 16px; }
+
+/* POST LAYOUT & SIDEBARS */
+.post-layout {
+  display: grid;
+  grid-template-columns: 220px 1fr 280px;
+  gap: 32px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 48px 24px 80px;
+}
+.sidebar {
+  position: sticky;
+  top: 90px;
+  align-self: start;
+}
+.sidebar-title {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--text);
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 8px;
+}
+.cat-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.cat-list a {
+  display: flex; align-items: center; justify-content: space-between;
+  text-decoration: none; color: var(--text2); padding: 8px 12px;
+  border-radius: var(--radius-sm); transition: all 0.2s;
+  background: var(--bg2); border: 1px solid var(--border); font-size: 14px; font-weight: 600;
+}
+.cat-list a:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+.sidebar-post {
+  display: flex; gap: 12px; align-items: center;
+  text-decoration: none; color: var(--text);
+  padding: 8px; border-radius: var(--radius-sm);
+  transition: background 0.2s; border: 1px solid transparent;
+}
+.sidebar-post:hover { background: var(--bg2); border-color: var(--border); }
+.sidebar-post img {
+  width: 60px; height: 60px; border-radius: var(--radius-sm); object-fit: cover; flex-shrink: 0;
+}
+.sidebar-post .emoji-thumb {
+  width: 60px; height: 60px; border-radius: var(--radius-sm);
+  background: var(--bg3); display: flex; align-items: center; justify-content: center;
+  font-size: 24px; flex-shrink: 0;
+}
+.sidebar-post-title { font-size: 13px; font-weight: 600; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+.recent-bottom { display: none; }
+
+@media (max-width: 1024px) {
+  .post-layout { grid-template-columns: 1fr 280px; }
+  .left-sidebar { display: none; }
+}
+@media (max-width: 768px) {
+  .post-layout { grid-template-columns: 1fr; display: flex; flex-direction: column; }
+  .sidebar { position: static; }
+  .right-sidebar { display: none; }
+  .recent-bottom { display: block; }
+}
+
+/* MOBILE */
+@media (max-width: 640px) {
+  .post-card.featured { grid-template-columns: 1fr; }
+  .form-grid { grid-template-columns: 1fr; }
+  .pros-cons { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: 1fr; }
+  .admin-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .nav-search { display: none; }
+}
+/* RAMABHADRA TELUGU FONT */
+.nav-logo,.hero h1,.section-title,.admin-title,.card-title,.post-detail h1,.big-rating,.stat-num,.footer-brand-name{font-family:'Inter','Inter',serif!important}
+/* SHARE & COMMENTS & YT */
+.share-box { margin: 32px 0; padding: 24px; background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); text-align: center; }
+.share-box h4 { margin-bottom: 16px; color: var(--text); font-size: 16px; font-family: var(--font-display); }
+.share-btns { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+.sh-btn { padding: 9px 18px; border-radius: 99px; border: none; color: #fff; font-size: 13px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 6px; font-family: var(--font-body); transition: transform 0.2s; }
+.sh-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+.sh-wa { background: #25D366; }
+.sh-tg { background: #2CA5E0; }
+.sh-fb { background: #1877F2; }
+.sh-tw { background: #1DA1F2; }
+.sh-ig { background: #E1306C; }
+.sh-rd { background: #FF4500; }
+.sh-qr { background: #B92B27; }
+.sh-ml { background: #888; }
+.sh-cp { background: var(--bg3); color: var(--text); border: 1.5px solid var(--border); }
+.sh-cp:hover { background: var(--border); }
+
+.static-page { max-width: 800px; margin: 0 auto; padding: 48px 24px 80px; }
+.static-page h1 { font-family: var(--font-display); font-size: 32px; font-weight: 900; margin-bottom: 24px; color: var(--text); text-align: center; }
+.static-page h2 { font-family: var(--font-display); font-size: 22px; font-weight: 700; margin: 32px 0 12px; color: var(--text); }
+.static-page p { margin-bottom: 16px; color: var(--text2); line-height: 1.8; }
+
+.desktop-only { display: flex; }
+.hamburger-btn { display: none; background: none; border: none; font-size: 28px; color: var(--text); cursor: pointer; padding: 4px; }
+.mobile-menu { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 2000; display: none; opacity: 0; transition: opacity 0.3s; }
+.mobile-menu.open { display: flex; opacity: 1; }
+.mobile-menu-inner { position: absolute; left: 0; top: 0; bottom: 0; width: 280px; background: var(--bg2); padding: 24px; transform: translateX(-100%); transition: transform 0.3s; display: flex; flex-direction: column; gap: 16px; border-right: 1px solid var(--border); box-shadow: 4px 0 24px rgba(0,0,0,0.1); }
+.mobile-menu.open .mobile-menu-inner { transform: translateX(0); }
+.close-menu { align-self: flex-end; background: none; border: none; font-size: 32px; color: var(--text); cursor: pointer; margin-bottom: 16px; }
+.mobile-menu a { font-size: 16px; color: var(--text); text-decoration: none; font-weight: 600; padding: 12px 0; border-bottom: 1px solid var(--border); font-family: var(--font-body); }
+.mobile-menu a:hover { color: var(--accent); }
+
+.yt-embed { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: var(--radius); margin: 32px 0; border: 1px solid var(--border); background: #000; }
+.yt-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+
+.comments-section { margin-top: 48px; border-top: 1px solid var(--border); padding-top: 32px; }
+.comments-section h3 { font-family: var(--font-display); font-size: 20px; margin-bottom: 20px; color: var(--text); }
+.comment-form { display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; background: var(--bg2); padding: 24px; border-radius: var(--radius); border: 1px solid var(--border); }
+.comment-form input, .comment-form textarea { padding: 12px 16px; border: 1.5px solid var(--border); border-radius: var(--radius-sm); background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 14px; outline: none; transition: border-color 0.2s; }
+.comment-form input:focus, .comment-form textarea:focus { border-color: var(--accent); }
+.comment-form textarea { resize: vertical; min-height: 90px; }
+.comment-list { display: flex; flex-direction: column; gap: 16px; }
+.comment-item { padding: 16px 20px; background: var(--bg2); border-radius: var(--radius-sm); border: 1px solid var(--border); }
+.comment-header { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 12px; color: var(--text3); }
+.comment-name { font-weight: 700; color: var(--text); font-size: 14px; }
+.comment-text { color: var(--text2); font-size: 14px; line-height: 1.6; }
+/* FOOTER */
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:48px 24px 24px;margin-top:48px}
+.footer-inner{max-width:1200px;margin:0 auto}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;margin-bottom:32px}
+.footer-brand-name{font-size:24px;color:var(--accent);margin-bottom:8px;display:block}
+.footer-brand p{font-size:13px;color:var(--text3);line-height:1.7;margin-bottom:12px}
+.footer-col h4{font-size:12px;font-weight:700;color:var(--text);margin-bottom:14px;text-transform:uppercase;letter-spacing:.5px}
+.footer-col a{display:block;font-size:13px;color:var(--text2);text-decoration:none;margin-bottom:9px;transition:color .2s}
+.footer-col a:hover{color:var(--accent)}
+.social-links{display:flex;gap:8px;margin-top:4px}
+.s-btn{width:36px;height:36px;border-radius:99px;display:flex;align-items:center;justify-content:center;font-size:15px;text-decoration:none;transition:transform .2s;color:#fff;font-weight:700}
+.s-btn:hover{transform:scale(1.12)}
+.s-wa{background:#25D366}.s-tg{background:#2CA5E0}.s-fb{background:#1877F2}.s-yt{background:#FF0000}
+.footer-bottom{border-top:1px solid var(--border);padding-top:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.footer-copy{font-size:12px;color:var(--text3)}
+.footer-links a{font-size:12px;color:var(--text3);text-decoration:none;margin-left:12px;transition:color .2s}
+.footer-links a:hover{color:var(--accent)}
+/* FLOATING BUTTONS */
+.float-btns{position:fixed;bottom:24px;right:24px;display:flex;flex-direction:column;gap:10px;z-index:998}
+.float-btn{width:50px;height:50px;border-radius:99px;display:flex;align-items:center;justify-content:center;font-size:22px;text-decoration:none;box-shadow:0 4px 20px rgba(0,0,0,.25);transition:transform .2s}
+.float-btn:hover{transform:scale(1.1) translateY(-2px)}
+.float-wa{background:#25D366}.float-tg{background:#2CA5E0}
+/* LOGIN MODAL */
+.modal-ov{position:fixed;inset:0;background:rgba(0,0,0,.65);backdrop-filter:blur(6px);z-index:2000;display:none;align-items:center;justify-content:center;padding:16px}
+.modal-ov.open{display:flex}
+.modal-box{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:36px;width:100%;max-width:380px;}
+.modal-box h2{font-family:'Inter',serif;font-size:26px;margin-bottom:6px;color:var(--text)}
+.modal-box .modal-sub{font-size:13px;color:var(--text3);margin-bottom:24px}
+.m-inp{width:100%;padding:11px 14px;border:1.5px solid var(--border);border-radius:var(--radius-sm);background:var(--bg);color:var(--text);font-size:14px;font-family:var(--font-body);outline:none;margin-bottom:12px;box-sizing:border-box;transition:border-color .2s}
+.m-inp:focus{border-color:var(--accent)}
+.m-btn{width:100%;padding:12px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius-sm);font-size:15px;font-weight:700;cursor:pointer;font-family:var(--font-body);transition:all .2s;margin-top:4px}
+.m-btn:hover{background:var(--accent2)}
+.m-cancel{width:100%;padding:10px;background:none;border:1.5px solid var(--border);border-radius:var(--radius-sm);color:var(--text2);cursor:pointer;margin-top:8px;font-family:var(--font-body);font-size:14px;transition:all .2s}
+.m-cancel:hover{background:var(--bg3)}
+.m-err{color:#dc2626;font-size:13px;margin-top:4px;display:none;padding:8px 12px;background:rgba(220,38,38,.08);border-radius:var(--radius-sm)}
+
+@media(max-width:768px){
+  .desktop-only { display: none !important; }
+  .hamburger-btn { display: block; }
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .post-card.featured{grid-template-columns:1fr}
+  .form-grid{grid-template-columns:1fr}
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .hero{padding:40px 16px 32px}
+  .hero h1{font-size:clamp(26px,5vw,40px)}
+  .hero-stats{gap:20px}
+  .hero p{font-size:14px}
+  .categories{padding:16px 16px 0}
+  .posts-section{padding:20px 16px 48px}
+  .post-detail{padding:32px 16px 60px}
+  .static-page{padding:32px 16px 60px}
+  .static-page h1{font-size:26px}
+  .admin-page{padding:24px 16px 60px}
+  .pros-cons{grid-template-columns:1fr}
+  .admin-header{flex-direction:column;align-items:flex-start;gap:12px}
+  .nav-search{display:none}
+  .rating-box{padding:16px}
+  .big-rating{font-size:40px}
+  .modal-box{padding:24px 18px}
+}
+@media(max-width:480px){
+  .footer-grid{grid-template-columns:1fr}
+  .float-btns{bottom:16px;right:16px}
+  .stats-grid{grid-template-columns:1fr}
+  .hero-stats{gap:14px}
+  .stat-num{font-size:22px}
+  .post-list-item{flex-wrap:wrap}
+  .post-list-actions{width:100%;justify-content:flex-end}
+  nav{padding:0 16px;gap:10px}
+  .nav-logo{font-size:18px}
+  .section-title{font-size:18px}
+  .card-title{font-size:15px}
+  .form-grid{grid-template-columns:1fr}
+  .admin-tabs{flex-direction:column}
+  .tab-btn{padding:10px}
+  .contact-info-grid{grid-template-columns:1fr!important}
+  .footer-bottom{flex-direction:column;align-items:flex-start;gap:8px}
+  .footer-links a{margin-left:0;margin-right:12px}
+}
+/* QUILL */
+.ql-toolbar.ql-snow { background: var(--bg3); border-color: var(--border) !important; border-radius: var(--radius-sm) var(--radius-sm) 0 0; }
+.ql-container.ql-snow { border-color: var(--border) !important; border-radius: 0 0 var(--radius-sm) var(--radius-sm); font-family: var(--font-body) !important; font-size: 15px !important; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo" onclick="goHome()">Visu<span>ya</span></div>
+  <div class="nav-search">
+    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    <input type="text" id="searchInput" placeholder="Credit cards Search..." oninput="handleSearch(this.value)">
+  </div>
+  <div class="nav-cats desktop-only" id="navCats" style="display:none; gap:16px; margin-left:16px; margin-right:auto; align-items:center;">
+    <a href="#" onclick="filterCategory('review');return false" style="color:var(--text);text-decoration:none;font-weight:600;font-size:14px;">Reviews</a>
+    <a href="#" onclick="filterCategory('compare');return false" style="color:var(--text);text-decoration:none;font-weight:600;font-size:14px;">Comparisons</a>
+    <a href="#" onclick="filterCategory('tips');return false" style="color:var(--text);text-decoration:none;font-weight:600;font-size:14px;">Tips</a>
+    <a href="#" onclick="filterCategory('offers');return false" style="color:var(--text);text-decoration:none;font-weight:600;font-size:14px;">Offers</a>
+  </div>
+  <div class="nav-right">
+    <button class="theme-btn" onclick="toggleTheme()" title="Dark/Light Mode" id="themeBtn">🌙</button>
+    <button class="hamburger-btn" onclick="toggleMenu()">☰</button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-inner" style="overflow-y:auto">
+    <button class="close-menu" onclick="toggleMenu()">×</button>
+    <a href="#" onclick="goHome();toggleMenu();return false">🏠 Home</a>
+    <div style="font-size:12px;color:var(--text3);margin-top:16px;font-weight:700">CATEGORIES</div>
+    <a href="#" onclick="filterCategory('review');toggleMenu();return false">💳 Card Reviews</a>
+    <a href="#" onclick="filterCategory('compare');toggleMenu();return false">⚖️ Comparisons</a>
+    <a href="#" onclick="filterCategory('tips');toggleMenu();return false">💡 Tips & Tricks</a>
+    <a href="#" onclick="filterCategory('beginners');toggleMenu();return false">🎯 Beginners</a>
+    <a href="#" onclick="filterCategory('offers');toggleMenu();return false">🎁 Offers & Deals</a>
+    <div style="font-size:12px;color:var(--text3);margin-top:16px;font-weight:700">PAGES</div>
+    <a href="#" onclick="showPage('about');toggleMenu();return false">👤 About Us</a>
+    <a href="#" onclick="window.location.href='admin.html';toggleMenu();return false">✍️ Admin Panel</a>
+    <a href="#" onclick="showPage('privacy');toggleMenu();return false">🔒 Privacy Policy</a>
+    <a href="#" onclick="showPage('disclaimer');toggleMenu();return false">⚠️ Disclaimer</a>
+    <a href="#" onclick="showPage('terms');toggleMenu();return false">📄 Terms & Conditions</a>
+    <a href="#" onclick="showPage('contact');toggleMenu();return false">📧 Contact Us</a>
+  </div>
+</div>
+
+<!-- HOME PAGE -->
+<div class="page active" id="page-home">
+  <div class="hero">
+    <div class="hero-tag">Credit Card Guide</div>
+    <h1>Find Your Perfect <em>Credit Card</em><br>Here</h1>
+    <p>All credit card reviews, comparisons, and financial tips in one place.</p>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num" id="statPosts">0</span><span class="stat-label">Articles</span></div>
+      <div class="stat"><span class="stat-num">100%</span><span class="stat-label">in English</span></div>
+      <div class="stat"><span class="stat-num">Free</span><span class="stat-label">Forever</span></div>
+    </div>
+  </div>
+
+  <div class="categories">
+    <div class="cat-scroll" id="catScroll">
+      <button class="cat-chip active" onclick="filterCategory('all', this)">All</button>
+      <button class="cat-chip" onclick="filterCategory('review', this)">Card Reviews</button>
+      <button class="cat-chip" onclick="filterCategory('compare', this)">Comparison</button>
+      <button class="cat-chip" onclick="filterCategory('tips', this)">Tips & Tricks</button>
+      <button class="cat-chip" onclick="filterCategory('beginners', this)">Beginners Guide</button>
+      <button class="cat-chip" onclick="filterCategory('offers', this)">Offers & Deals</button>
+      <button class="cat-chip" onclick="filterCategory('news', this)">Finance News</button>
+    </div>
+  </div>
+
+  <div class="posts-section">
+    <div class="section-header">
+      <h2 class="section-title" id="sectionTitle">Latest Articles</h2>
+      <span class="search-count" id="searchCount"></span>
+    </div>
+    <div class="posts-grid" id="postsGrid"></div>
+
+  </div>
+</div>
+
+<!-- POST DETAIL PAGE -->
+<div class="page" id="page-post">
+  <div class="post-layout">
+    
+    <!-- LEFT SIDEBAR -->
+    <aside class="sidebar left-sidebar">
+      <h3 class="sidebar-title">Categories</h3>
+      <ul class="cat-list">
+        <li><a href="#" onclick="filterCategory('review');return false">Reviews <span style="font-size:12px;opacity:0.7">▶</span></a></li>
+        <li><a href="#" onclick="filterCategory('compare');return false">Comparisons <span style="font-size:12px;opacity:0.7">▶</span></a></li>
+        <li><a href="#" onclick="filterCategory('tips');return false">Tips & Tricks <span style="font-size:12px;opacity:0.7">▶</span></a></li>
+        <li><a href="#" onclick="filterCategory('beginners');return false">Beginners <span style="font-size:12px;opacity:0.7">▶</span></a></li>
+        <li><a href="#" onclick="filterCategory('offers');return false">Offers <span style="font-size:12px;opacity:0.7">▶</span></a></li>
+        <li><a href="#" onclick="filterCategory('news');return false">Finance News <span style="font-size:12px;opacity:0.7">▶</span></a></li>
+      </ul>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <div class="post-detail" style="padding:0; margin:0; min-width:0;">
+      <button class="post-detail-back" onclick="goHome()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+        Go Back
+      </button>
+      <div id="postContent"></div>
+      
+      <!-- COMMENTS SECTION -->
+      <div id="commentsSection" class="comments-section"></div>
+
+      <!-- RECENT POSTS SECTION (Mobile Bottom) -->
+      <div class="recent-posts-container recent-bottom" style="margin-top:48px; padding-top:32px; border-top:1px solid var(--border);">
+        <h3 style="font-family:'Inter',serif; font-size:22px; margin-bottom:20px; color:var(--text)">Recent Posts</h3>
+        <div class="recent-posts-grid" id="recentPostsGrid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(220px, 1fr)); gap:16px;"></div>
+      </div>
+    </div>
+
+    <!-- RIGHT SIDEBAR -->
+    <aside class="sidebar right-sidebar">
+      <h3 class="sidebar-title">Recent Articles</h3>
+      <div id="sidebarRecentPosts" style="display:flex; flex-direction:column; gap:8px;"></div>
+    </aside>
+
+  </div>
+</div>
+
+<!-- PRIVACY POLICY PAGE -->
+<div class="page" id="page-privacy">
+  <div class="static-page">
+    <button class="post-detail-back" onclick="goHome()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+      Go Back
+    </button>
+    <h1>🔒 Privacy Policy</h1>
+    <p style="color:var(--text3);font-size:13px">Last updated: May 2025</p>
+    <h2>What Information Do We Collect?</h2>
+    <p>Visuya website may automatically collect visitor data. When you submit the contact form, your name and email are collected.</p>
+
+    <h2>Cookies</h2>
+    <p>We use localStorage to save theme preference. Third-party cookies come from Google Analytics and AdSense.</p>
+    <h2>Contact</h2>
+    <p>For privacy questions: <a href="mailto:contact@visuya.com" style="color:var(--accent)">contact@visuya.com</a></p>
+  </div>
+</div>
+<!-- DISCLAIMER PAGE -->
+<div class="page" id="page-disclaimer">
+  <div class="static-page">
+    <button class="post-detail-back" onclick="goHome()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+      Go Back
+    </button>
+    <h1>⚠️ Disclaimer</h1>
+    <h2>Not Financial Advice</h2>
+    <p>Information published on Visuya is for educational purposes only. It is not professional financial advice. Please verify with the bank before applying for a credit card.</p>
+    <h2>Accuracy</h2>
+    <p>We try to provide accurate information, but bank policies, interest rates, and fees can change at any time. Visit the bank website for the latest info.</p>
+    <h2>Affiliate Links</h2>
+    <p>Some links may be affiliate links. We may receive a commission when you apply. This does not affect your experience.</p>
+    <h2>Liability</h2>
+    <p>Visuya is not responsible for decisions made based on the information on this website.</p>
+  </div>
+</div>
+<!-- TERMS PAGE -->
+<div class="page" id="page-terms">
+  <div class="static-page">
+    <button class="post-detail-back" onclick="goHome()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+      Go Back
+    </button>
+    <h1>📄 Terms & Conditions</h1>
+    <p style="color:var(--text3);font-size:13px">Last updated: May 2025</p>
+    <h2>Acceptance of Terms</h2>
+    <p>By accessing and using Visuya, you agree to comply with and be bound by these terms and conditions.</p>
+    <h2>Use of Content</h2>
+    <p>All content on this site is for educational purposes. You may not copy or reproduce it without permission.</p>
+    <h2>Limitation of Liability</h2>
+    <p>We are not responsible for any financial loss or damages resulting from the use of our website or the information provided.</p>
+  </div>
+</div>
+<!-- CONTACT PAGE -->
+<div class="page" id="page-contact">
+  <div class="static-page">
+    <button class="post-detail-back" onclick="goHome()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+      Go Back
+    </button>
+    <h1>📧 Contact Us</h1>
+    <p>Contact us for your questions, feedback, or suggestions.</p>
+    <div style="display:grid;grid-template-columns:1fr;gap:16px;margin:24px 0">
+      <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:20px;text-align:center">
+        <div style="font-size:32px;margin-bottom:8px">📧</div>
+        <div style="font-weight:600;color:var(--text);margin-bottom:4px">Email</div>
+        <a href="mailto:contact@visuya.com" style="font-size:13px;color:var(--accent);text-decoration:none">contact@visuya.com</a>
+      </div>
+    </div>
+    <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:28px">
+      <h2 style="margin-top:0;font-family:'Inter',serif">💬 Send Message</h2>
+      <input type="text" id="cName" placeholder="Your Name" style="width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:var(--radius-sm);background:var(--bg);color:var(--text);font-size:14px;font-family:var(--font-body);outline:none;margin-bottom:12px;box-sizing:border-box">
+      <input type="email" id="cEmail" placeholder="Your Email" style="width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:var(--radius-sm);background:var(--bg);color:var(--text);font-size:14px;font-family:var(--font-body);outline:none;margin-bottom:12px;box-sizing:border-box">
+      <input type="text" id="cSubject" placeholder="Subject" style="width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:var(--radius-sm);background:var(--bg);color:var(--text);font-size:14px;font-family:var(--font-body);outline:none;margin-bottom:12px;box-sizing:border-box">
+      <textarea id="cMessage" placeholder="Write your message here..." style="width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:var(--radius-sm);background:var(--bg);color:var(--text);font-size:14px;font-family:var(--font-body);outline:none;min-height:120px;resize:vertical;margin-bottom:12px;box-sizing:border-box"></textarea>
+      <button class="btn-submit" onclick="submitContact()">📨 Send Message</button>
+    </div>
+  </div>
+</div>
+<!-- ABOUT US PAGE -->
+<div class="page" id="page-about">
+  <div class="static-page">
+    <button class="post-detail-back" onclick="goHome()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+      Go Back
+    </button>
+    <h1>👤 About Us</h1>
+    <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:32px;text-align:center;margin-bottom:24px;">
+      <div style="width:100px;height:100px;background:var(--bg3);border:3px solid var(--accent);border-radius:50%;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-size:48px;">👨‍💻</div>
+      <h2 style="margin-top:0;font-family:var(--font-display);font-size:24px;color:var(--text);">Techie Vinay</h2>
+      <div style="color:var(--accent);font-weight:600;font-size:14px;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px;">Software Engineer | Chennai</div>
+      <p style="color:var(--text2);font-size:15px;line-height:1.8;margin:0;">
+        Hello! I am <strong>Techie Vinay</strong>, a Software Engineer working in Chennai. I have a strong interest in personal finance, especially credit cards. I started <strong>Visuya</strong> to provide clear information, benefits, and offers related to credit cards.
+      </p>
+    </div>
+    <h2>🎯 My Mission</h2>
+    <p>Everyone should use credit cards without fear, in the right way, and benefit from rewards and cashback. My main goal is to provide easy-to-understand reviews and comparisons.</p>
+    <h2>🤝 Connect with me</h2>
+    <p>If you have any doubts about credit cards, you can ask me via the Contact form or through our community groups (Telegram, WhatsApp).</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="footer-brand-name">Visuya</span>
+        <p>All credit card reviews, comparisons, and financial tips in one place. Thousands of Telugu readers trust us.</p>
+        <div class="social-links">
+          <a href="https://wa.me/+91XXXXXXXXXX" class="s-btn s-wa" target="_blank" title="WhatsApp"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+          <a href="https://t.me/visuya" class="s-btn s-tg" target="_blank" title="Telegram"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.888-.662 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></a>
+          <a href="https://facebook.com/visuya" class="s-btn s-fb" target="_blank" title="Facebook"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a href="https://youtube.com/@visuya" class="s-btn s-yt" target="_blank" title="YouTube"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="#" onclick="goHome();return false">🏠 Home</a>
+        <a href="#" onclick="showPage('privacy');return false">🔒 Privacy Policy</a>
+        <a href="#" onclick="showPage('disclaimer');return false">⚠️ Disclaimer</a>
+        <a href="#" onclick="showPage('terms');return false">📄 Terms & Conditions</a>
+        <a href="#" onclick="showPage('contact');return false">📧 Contact Us</a>
+      </div>
+      <div class="footer-col">
+        <h4>Categories</h4>
+        <a href="#" onclick="filterCatFooter('review');return false">💳 Card Reviews</a>
+        <a href="#" onclick="filterCatFooter('compare');return false">⚖️ Comparisons</a>
+        <a href="#" onclick="filterCatFooter('tips');return false">💡 Tips &amp; Tricks</a>
+        <a href="#" onclick="filterCatFooter('beginners');return false">🎯 Beginners</a>
+        <a href="#" onclick="filterCatFooter('offers');return false">🎁 Offers &amp; Deals</a>
+      </div>
+      <div class="footer-col">
+        <h4>Community</h4>
+        <a href="#" onclick="showPage('about');return false">👤 About Us</a>
+        <a href="https://wa.me/+91XXXXXXXXXX" target="_blank">📱 WhatsApp Group</a>
+        <a href="https://t.me/visuya" target="_blank">✈️ Telegram Channel</a>
+        <a href="https://youtube.com/@visuya" target="_blank">▶️ YouTube Channel</a>
+        <a href="https://facebook.com/visuya" target="_blank">👥 Facebook Page</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 Visuya. All rights reserved. Made with ❤️ for you.</div>
+      <div class="footer-links">
+        <a href="#" onclick="showPage('privacy');return false">Privacy Policy</a>
+        <a href="#" onclick="showPage('disclaimer');return false">Disclaimer</a>
+        <a href="#" onclick="showPage('terms');return false">Terms & Conditions</a>
+        <a href="#" onclick="showPage('contact');return false">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/quill-image-resize-module@3.0.0/image-resize.min.js"></script>
+
+
+<script>
+
+let posts = [];
+let currentFilter = 'all';
+let searchQuery = '';
+let currentPostId = null;
+
+async function fetchPosts() {
+  try {
+    const res = await fetch('data/posts.json?v=' + new Date().getTime()); // cache busting
+    if (!res.ok) throw new Error('Not found');
+    posts = await res.json();
+    posts.sort((a,b) => b.id - a.id);
+  } catch(e) {
+    posts = [];
+  }
+  
+  const st = document.getElementById('statPosts');
+  if (st) st.textContent = posts.length;
+  
+  if (document.getElementById('page-home').classList.contains('active')) {
+    if (searchQuery) handleSearch(searchQuery);
+    else if (currentFilter && currentFilter !== 'all') {
+      const filtered = posts.filter(p => p.category === currentFilter);
+      renderPosts(filtered);
+    } else {
+      renderPosts(posts);
+    }
+  } else if (document.getElementById('page-post').classList.contains('active') && currentPostId) {
+    renderRecentPosts(currentPostId);
+  }
+}
+
+fetchPosts();
+
+// Removed comments functionality
+function renderComments(postId) {
+  document.getElementById('commentsSection').innerHTML = '<p style="color:var(--text3);font-size:13px">Comments are disabled.</p>';
+}
+
+
+// RENDER POSTS
+function renderPosts(filtered) {
+  const grid = document.getElementById('postsGrid');
+  if (!filtered || filtered.length === 0) {
+    grid.innerHTML = `<div class="empty-state"><div class="empty-icon">🔍</div><h3>No Posts Found</h3><p>Try a different search term or change the filter</p></div>`;
+    return;
+  }
+  grid.innerHTML = filtered.map((p, i) => {
+    const stars = '★'.repeat(Math.floor(p.rating || 4)) + (p.rating % 1 >= 0.5 ? '½' : '') + '☆'.repeat(5 - Math.ceil(p.rating || 4));
+    const catLabels = {review:'Review', compare:'Compare', tips:'Tips', beginners:'Beginner', offers:'Offers', news:'News'};
+    const isFeatured = p.featured && i === 0 && searchQuery === '' && currentFilter === 'all';
+    const cardImg = p.thumb
+      ? `<img src="${p.thumb}" style="width:100%;aspect-ratio:1200/628;height:auto;object-fit:cover;display:block" alt="${p.title}" loading="lazy">`
+      : `<div class="card-img-emoji">${p.emoji||'💳'}</div>`;
+    return `<div class="post-card${isFeatured?' featured':''}" onclick="showPost(${p.id})">
+      ${cardImg}
+      <div class="card-body">
+        <div class="card-category">${catLabels[p.category] || p.category}</div>
+        <h3 class="card-title">${p.title}</h3>
+        <p class="card-excerpt">${p.excerpt}</p>
+        <div class="card-footer">
+          <span class="card-date">${formatDate(p.date)}</span>
+          <div style="display:flex;align-items:center;gap:8px">
+            <span class="rating-stars">${(p.rating||4).toFixed(1)}★</span>
+            <span class="card-read">Read →</span>
+          </div>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function formatDate(d) {
+  if (!d) return '';
+  const date = new Date(d);
+  return date.toLocaleDateString('en-IN', {day:'numeric', month:'long', year:'numeric'});
+}
+
+function filterCategory(cat, btn) {
+  showPage('home');
+  const hero = document.querySelector('.hero');
+  if (hero) {
+    hero.style.display = (cat === 'all') ? 'block' : 'none';
+  }
+  currentFilter = cat;
+  searchQuery = '';
+  document.getElementById('searchInput').value = '';
+  
+  document.querySelectorAll('.cat-chip').forEach(c => {
+    c.classList.remove('active');
+    if (c.getAttribute('onclick') && c.getAttribute('onclick').includes(`'${cat}'`)) {
+      c.classList.add('active');
+    }
+  });
+
+  const catLabels = {all:'Latest Articles', review:'Card Reviews', compare:'Comparisons', tips:'Tips & Tricks', beginners:'Beginners Guide', offers:'Offers & Deals', news:'Finance News'};
+  document.getElementById('sectionTitle').textContent = catLabels[cat] || 'Articles';
+  document.getElementById('searchCount').textContent = '';
+  const filtered = cat === 'all' ? posts : posts.filter(p => p.category === cat);
+  renderPosts(filtered);
+}
+
+function handleSearch(q) {
+  if (document.querySelector('.page.active').id !== 'page-home') {
+    showPage('home');
+  }
+  searchQuery = q.trim().toLowerCase();
+  
+  const hero = document.querySelector('.hero');
+  if (searchQuery) {
+    if (hero) hero.style.display = 'none';
+  } else {
+    if (hero) hero.style.display = 'block';
+  }
+
+  document.querySelectorAll('.cat-chip').forEach(c => c.classList.remove('active'));
+  document.querySelector('.cat-chip').classList.add('active');
+  currentFilter = 'all';
+  if (!searchQuery) {
+    document.getElementById('sectionTitle').textContent = 'Latest Articles';
+    document.getElementById('searchCount').textContent = '';
+    renderPosts(posts);
+    return;
+  }
+  const filtered = posts.filter(p =>
+    p.title.toLowerCase().includes(searchQuery) ||
+    p.excerpt.toLowerCase().includes(searchQuery) ||
+    (p.cardName||'').toLowerCase().includes(searchQuery) ||
+    (p.category||'').toLowerCase().includes(searchQuery)
+  );
+  document.getElementById('sectionTitle').textContent = `"${q}" Search Results`;
+  document.getElementById('searchCount').textContent = `${filtered.length} articles found`;
+  renderPosts(filtered);
+}
+
+// SHOW POST DETAIL
+function showPost(id) {
+  currentPostId = id;
+  const p = posts.find(x => x.id === id);
+  if (!p) return;
+  
+  // Dynamic SEO Update
+  document.title = p.title + " | Visuya";
+  let plainTextDesc = (p.content || "").replace(/<[^>]*>?/gm, '').substring(0, 150).trim();
+  if (plainTextDesc) {
+    let metaDesc = document.querySelector('meta[name="description"]');
+    if(metaDesc) metaDesc.setAttribute("content", plainTextDesc + "...");
+  }
+
+  const catLabels = {review:'Card Review', compare:'Comparison', tips:'Tips & Tricks', beginners:"Beginner's Guide", offers:'Offers & Deals', news:'Finance News'};
+  const prosHTML = p.pros && p.pros.length ? `<ul>${(Array.isArray(p.pros)?p.pros:p.pros.split(',')).map(x=>`<li>${x.trim()}</li>`).join('')}</ul>` : '';
+  const consHTML = p.cons && p.cons.length ? `<ul>${(Array.isArray(p.cons)?p.cons:p.cons.split(',')).map(x=>`<li>${x.trim()}</li>`).join('')}</ul>` : '';
+  let contentHTML = p.content || '';
+  if (!contentHTML.includes('<p>') && !contentHTML.includes('<h2>') && !contentHTML.includes('<ul>')) {
+    contentHTML = contentHTML
+      .replace(/\n\n/g,'</p><p>')
+      .replace(/^## (.+)$/gm,'</p><h2>$1</h2><p>')
+      .replace(/^• (.+)$/gm,'<li>$1</li>');
+  }
+  contentHTML = contentHTML.replace(/\[img:(.*?)\]/g,'<img src="$1" style="width:100%;border-radius:var(--radius);margin:16px 0;display:block" alt="Image" loading="lazy">');
+  contentHTML = contentHTML.replace(/<a /g, '<a target="_blank" ');
+  const heroSection = p.thumb
+    ? `<div class="post-hero-img" style="padding:0;overflow:hidden"><img src="${p.thumb}" style="width:100%;aspect-ratio:1200/628;height:auto;object-fit:cover" alt="${p.title}"></div>`
+    : `<div class="post-hero-img">${p.emoji||'💳'}</div>`;
+
+  document.getElementById('postContent').innerHTML = `
+    <div class="post-detail-category">${catLabels[p.category]||p.category}</div>
+    <h1>${p.title}</h1>
+    <div class="post-meta">
+      <span class="post-meta-item">📅 ${formatDate(p.date)}</span>
+      ${p.fee ? `<span class="post-meta-item">💰 Annual Fee: ${p.fee}</span>` : ''}
+      ${p.rating ? `<span class="post-meta-item">⭐ Rating: ${p.rating}/5</span>` : ''}
+    </div>
+    ${heroSection}
+    <div class="post-content"><p>${contentHTML}</p></div>
+    ${(prosHTML||consHTML) ? `<div class="pros-cons"><div class="pros"><h4>✅ Pros</h4><ul style="padding:0">${prosHTML}</ul></div><div class="cons"><h4>❌ Cons</h4><ul style="padding:0">${consHTML}</ul></div></div>` : ''}
+    ${p.tips ? `<div style="background:var(--bg3);border-left:4px solid var(--accent);padding:16px;margin:24px 0;border-radius:0 var(--radius-sm) var(--radius-sm) 0"><div style="font-weight:700;margin-bottom:8px;color:var(--text)">💡 Tips</div><div style="color:var(--text2);font-size:15px;line-height:1.6">${p.tips.replace(/\n/g, '<br>')}</div></div>` : ''}
+    ${p.note ? `<div style="background:rgba(220,38,38,0.05);border-left:4px solid #dc2626;padding:16px;margin:24px 0;border-radius:0 var(--radius-sm) var(--radius-sm) 0"><div style="font-weight:700;margin-bottom:8px;color:#dc2626">📌 Note</div><div style="color:var(--text2);font-size:15px;line-height:1.6">${p.note.replace(/\n/g, '<br>')}</div></div>` : ''}
+  `;
+
+  const ytHTML = p.youtubeId ? `<div class="yt-embed"><iframe src="https://www.youtube.com/embed/${p.youtubeId}" allowfullscreen></iframe></div>` : '';
+  const rawBaseUrl = window.location.protocol === 'file:' ? 'https://visuya.com/' : (window.location.origin + window.location.pathname);
+  const rawShareUrl = rawBaseUrl + (rawBaseUrl.endsWith('/') ? '' : '/') + '?post=' + p.id;
+  const shareURL = encodeURIComponent(rawShareUrl);
+  const shareTitle = encodeURIComponent(p.title);
+  
+  const shareHTML = `
+    <div class="share-box">
+      <h4>Share this article:</h4>
+      <div class="share-btns">
+        <a class="sh-btn sh-wa" href="https://wa.me/?text=${shareTitle}%20${shareURL}" target="_blank" rel="noopener noreferrer" title="WhatsApp" style="text-decoration:none"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+        <a class="sh-btn sh-tg" href="https://t.me/share/url?url=${shareURL}&text=${shareTitle}" target="_blank" rel="noopener noreferrer" title="Telegram" style="text-decoration:none"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.888-.662 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></a>
+        <a class="sh-btn sh-fb" href="https://www.facebook.com/sharer/sharer.php?u=${shareURL}" target="_blank" rel="noopener noreferrer" title="Facebook" style="text-decoration:none"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+        <a class="sh-btn sh-tw" href="https://twitter.com/intent/tweet?url=${shareURL}&text=${shareTitle}" target="_blank" rel="noopener noreferrer" style="background:#000;text-decoration:none" title="X (Twitter)"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+
+        <a class="sh-btn sh-ml" href="mailto:?subject=${shareTitle}&body=Check this out: ${shareURL}" title="Email" style="text-decoration:none"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M0 4a2 2 0 0 1 2-2h20a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm22 1.34-10 6.25-10-6.25V19a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V5.34zm-10 7.42l9.74-6.08a1 1 0 0 0-.74-.68H3a1 1 0 0 0-.74.68z"/></svg></a>
+        <button class="sh-btn sh-cp" onclick="copyPostLink('${rawShareUrl}')" title="Copy Link"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg></button>
+      </div>
+    </div>
+  `;
+  document.getElementById('postContent').innerHTML += ytHTML + shareHTML;
+
+  showPage('post');
+  window.scrollTo(0,0);
+  renderRecentPosts(id);
+  renderComments(p.id);
+}
+
+function getYoutubeId(url) {
+  if(!url) return null;
+  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+  const match = url.match(regExp);
+  return (match && match[2].length === 11) ? match[2] : null;
+}
+
+function copyPostLink(url) {
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(url).then(() => showToast('Link copied! 📋', 'success')).catch(() => showToast('Failed to copy link', 'error'));
+  } else {
+    const tempInput = document.createElement('input');
+    tempInput.value = url;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    try {
+      document.execCommand('copy');
+      showToast('Link copied! 📋', 'success');
+    } catch (err) {
+      showToast('Failed to copy link', 'error');
+    }
+    document.body.removeChild(tempInput);
+  }
+}
+
+function renderComments(postId) {
+  const list = comments[postId] || [];
+  let html = `<h3>Comments (${list.length})</h3>`;
+  html += `
+    <div class="comment-form">
+      <input type="text" id="commentName_${postId}" placeholder="Your Name">
+      <textarea id="commentText_${postId}" placeholder="Write your comment here..."></textarea>
+      <button class="btn-submit" onclick="addComment(${postId})" style="align-self:flex-start">Submit Comment</button>
+    </div>
+  `;
+  if (list.length > 0) {
+    html += '<div class="comment-list">' + list.map(c => `
+      <div class="comment-item">
+        <div class="comment-header"><span class="comment-name">${c.name}</span><span>${formatDate(c.date)}</span></div>
+        <div class="comment-text">${c.text}</div>
+      </div>
+    `).join('') + '</div>';
+  } else {
+    html += '<p style="color:var(--text3);font-size:13px">No comments yet. Be the first to comment!</p>';
+  }
+  document.getElementById('commentsSection').innerHTML = html;
+}
+
+function addComment(postId) {
+  const name = document.getElementById(`commentName_${postId}`).value.trim();
+  const text = document.getElementById(`commentText_${postId}`).value.trim();
+  if (!name || !text) { showToast('Please write your name and comment!', 'error'); return; }
+  
+  const newComment = { name, text, date: new Date().toISOString() };
+  if (!comments[postId]) comments[postId] = [];
+  comments[postId].push(newComment);
+  
+  db.ref('comments/' + postId).set(comments[postId]).then(() => {
+    showToast('Comment added!', 'success');
+    document.getElementById(`commentName_${postId}`).value = '';
+    document.getElementById(`commentText_${postId}`).value = '';
+  }).catch(err => {
+    showToast('Error: ' + err.message, 'error');
+  });
+}
+
+function renderRecentPosts(currentId) {
+  const recent = posts.filter(p => p.id !== currentId).slice(0, 5);
+  
+  // Mobile Grid
+  const grid = document.getElementById('recentPostsGrid');
+  if (grid) {
+    if (!recent.length) {
+      grid.innerHTML = '<p style="color:var(--text3);font-size:13px">No recent posts</p>';
+    } else {
+      grid.innerHTML = recent.slice(0, 3).map((p, i) => {
+        const cardImg = p.thumb
+          ? `<img src="${p.thumb}" style="width:100%;aspect-ratio:1200/628;height:auto;object-fit:cover;display:block" alt="${p.title}" loading="lazy">`
+          : `<div class="card-img-emoji" style="aspect-ratio:1200/628;height:auto;font-size:40px">${p.emoji||'💳'}</div>`;
+        return `<div class="post-card" onclick="showPost(${p.id})">
+          ${cardImg}
+          <div class="card-body" style="padding:14px">
+            <h3 class="card-title" style="font-size:15px;margin-bottom:6px">${p.title}</h3>
+            <span class="card-date" style="font-size:11px;color:var(--text3)">${formatDate(p.date)}</span>
+          </div>
+        </div>`;
+      }).join('');
+    }
+  }
+
+  // Right Sidebar List
+  const sidebarGrid = document.getElementById('sidebarRecentPosts');
+  if (sidebarGrid) {
+    if (!recent.length) {
+      sidebarGrid.innerHTML = '<p style="color:var(--text3);font-size:13px">No recent posts</p>';
+    } else {
+      sidebarGrid.innerHTML = recent.map((p, i) => {
+        const thumb = p.thumb 
+          ? `<img src="${p.thumb}" alt="${p.title}">` 
+          : `<div class="emoji-thumb">${p.emoji||'💳'}</div>`;
+        return `
+          <a href="#" onclick="showPost(${p.id}); return false;" class="sidebar-post">
+            ${thumb}
+            <div>
+              <div class="sidebar-post-title">${p.title}</div>
+              <div style="font-size:11px;color:var(--text3);margin-top:4px">${formatDate(p.date)}</div>
+            </div>
+          </a>
+        `;
+      }).join('');
+    }
+  }
+}
+
+// NAVIGATION
+function showPage(name) {
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+name).classList.add('active');
+  if (name==='admin') { renderAdminStats(); renderAdminList(); }
+  const navCats = document.getElementById('navCats');
+  if (navCats) navCats.style.display = name === 'post' ? 'flex' : 'none';
+  window.scrollTo(0,0);
+}
+
+function toggleMenu() {
+  const menu = document.getElementById('mobileMenu');
+  if (menu) menu.classList.toggle('open');
+}
+
+function goHome() {
+  // Restore SEO Title
+  document.title = "Visuya - Credit Card Guide | Best Credit Cards in English";
+  let metaDesc = document.querySelector('meta[name="description"]');
+  if(metaDesc) metaDesc.setAttribute("content", "All credit card reviews, comparisons, and financial tips. Best credit cards India 2025, credit score tips Telugu lo.");
+  
+  showPage('home');
+  const hero = document.querySelector('.hero');
+  if (hero) hero.style.display = 'block';
+  document.getElementById('searchInput').value = '';
+  searchQuery = '';
+  currentFilter = 'all';
+  document.querySelectorAll('.cat-chip').forEach(c => c.classList.remove('active'));
+  document.querySelector('.cat-chip').classList.add('active');
+  document.getElementById('sectionTitle').textContent = 'Latest Articles';
+  document.getElementById('searchCount').textContent = '';
+  renderPosts(posts);
+  window.scrollTo(0,0);
+}
+
+// THEME
+function toggleTheme() {
+  const html = document.documentElement;
+  const isDark = html.getAttribute('data-theme')==='dark';
+  html.setAttribute('data-theme', isDark?'light':'dark');
+  document.getElementById('themeBtn').textContent = isDark?'🌙':'☀️';
+  localStorage.setItem('nk_theme', isDark?'light':'dark');
+}
+
+// TOAST
+function showToast(msg, type='') {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'toast '+(type||'');
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2800);
+}
+
+// CONTACT SUBMIT
+function submitContact(){
+  const n=document.getElementById('cName').value.trim();
+  const e=document.getElementById('cEmail').value.trim();
+  const m=document.getElementById('cMessage').value.trim();
+  if(!n||!e||!m){showToast('Please fill all fields!','error');return;}
+  showToast('Your message has been sent! We will reply soon. ✅','success');
+  ['cName','cEmail','cSubject','cMessage'].forEach(id=>document.getElementById(id).value='');
+}
+// THUMBNAIL FILE UPLOAD
+function handleThumbUpload(input){
+  const file=input.files[0];
+  if(!file) return;
+  if(file.size>3*1024*1024){showToast('Image must be less than 3MB!','error');input.value='';return;}
+  const reader=new FileReader();
+  reader.onload=e=>{
+    document.getElementById('fThumb').value=e.target.result;
+    const pr=document.getElementById('thumbPreview');
+    pr.src=e.target.result;pr.style.display='block';
+    document.getElementById('thumbFileName').textContent=file.name;
+    showToast('Thumbnail uploaded! ✅','success');
+  };
+  reader.readAsDataURL(file);
+}
+// CONTENT IMAGE FILE UPLOAD
+function handleImgUpload(input){
+  const file=input.files[0];
+  if(!file) return;
+  if(file.size>2*1024*1024){showToast('Image must be less than 2MB!','error');input.value='';return;}
+  const reader=new FileReader();
+  reader.onload=e=>{
+    if (window.quill) {
+      const range = window.quill.getSelection(true);
+      window.quill.insertEmbed(range ? range.index : window.quill.getLength(), 'image', e.target.result);
+    }
+    document.getElementById('imgFileName').textContent=file.name+' ✅';
+    showToast('Image added to content! ✅','success');
+    input.value='';
+  };
+  reader.readAsDataURL(file);
+}
+function filterCatFooter(cat){
+  goHome();
+  currentFilter=cat;
+  const chips=document.querySelectorAll('.cat-chip');
+  chips.forEach(c=>c.classList.remove('active'));
+  const catLabels={all:'Latest Articles',review:'Card Reviews',compare:'Comparisons',tips:'Tips & Tricks',beginners:'Beginners Guide',offers:'Offers & Deals',news:'Finance News'};
+  document.getElementById('sectionTitle').textContent=catLabels[cat]||'Articles';
+  renderPosts(posts.filter(p=>p.category===cat));
+}
+// INIT
+const savedTheme = localStorage.getItem('nk_theme');
+if (savedTheme) {
+  document.documentElement.setAttribute('data-theme', savedTheme);
+  document.getElementById('themeBtn').textContent = savedTheme==='dark'?'☀️':'🌙';
+}
+updateStats();
+renderPosts(posts);
+
+const gaId = localStorage.getItem('nk_ga_id');
+if (gaId && !document.getElementById('ga-script')) {
+  const s1 = document.createElement('script');
+  s1.async = true; s1.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
+  s1.id = 'ga-script'; document.head.appendChild(s1);
+  const s2 = document.createElement('script');
+  s2.innerHTML = `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${gaId}');`;
+  document.head.appendChild(s2);
+}
+
+// QUILL INIT
+var quill = new Quill('#quillEditor', {
+  theme: 'snow',
+  placeholder: 'Write the full article content here...',
+  modules: {
+    imageResize: { displaySize: true },
+    toolbar: [
+      [{ 'header': [1, 2, 3, false] }],
+      ['bold', 'italic', 'underline', 'strike'],
+      [{ 'color': [] }, { 'background': [] }],
+      [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+      ['link', 'blockquote', 'code-block'],
+      ['clean']
+    ]
+  }
+});
+window.quill = quill;
+
+function updateWordCount() {
+  var text = quill.getText().trim();
+  var count = text.length > 0 ? text.split(/\s+/).length : 0;
+  document.getElementById('wordCount').textContent = count;
+}
+quill.on('text-change', updateWordCount);
+
+// HANDLE DIRECT POST LINKS
+const urlParams = new URLSearchParams(window.location.search);
+const sharedPostId = urlParams.get('post');
+let initialPostLoaded = false;
+if (sharedPostId) {
+  const checkPosts = setInterval(() => {
+    if (posts.length > 0) {
+      clearInterval(checkPosts);
+      if(!initialPostLoaded) {
+        showPost(parseInt(sharedPostId));
+        initialPostLoaded = true;
+      }
+    }
+  }, 50);
+  setTimeout(() => clearInterval(checkPosts), 5000);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Visuya - Admin Panel</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter&family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=Noto+Sans+Telugu:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+<style>
+:root {
+  --bg: #f7f5f0; --bg2: #ffffff; --bg3: #edeae3;
+  --text: #1a1814; --text2: #5a5650; --text3: #9a9590;
+  --accent: #c8341a; --accent2: #e8491f; --gold: #d4921a;
+  --border: #ddd9d0;
+  --card-shadow: 0 2px 20px rgba(0,0,0,0.07);
+  --radius: 16px; --radius-sm: 10px;
+  --font-display: 'Inter', 'Playfair Display', serif;
+  --font-body: 'DM Sans', 'Inter', sans-serif;
+  --nav-h: 68px;
+}
+[data-theme="dark"] {
+  --bg: #0f0e0c; --bg2: #1a1916; --bg3: #252320;
+  --text: #f0ede6; --text2: #a8a49c; --text3: #6a6660;
+  --border: #2e2c28; --card-shadow: 0 2px 20px rgba(0,0,0,0.3);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--font-body); background: var(--bg); color: var(--text);
+  font-size: 15px; line-height: 1.6; min-height: 100vh;
+}
+/* ADMIN PAGE CSS */
+.admin-page { max-width: 900px; margin: 0 auto; padding: 40px 24px 80px; }
+.admin-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 32px; }
+.admin-title { font-family: var(--font-display); font-size: 28px; font-weight: 900; color: var(--text); }
+.admin-tabs { display: flex; gap: 4px; background: var(--bg3); border-radius: var(--radius-sm); padding: 4px; margin-bottom: 28px; }
+.tab-btn { flex: 1; padding: 9px 16px; border-radius: 7px; border: none; background: none; color: var(--text2); font-size: 13px; font-weight: 500; cursor: pointer; transition: all 0.2s; font-family: var(--font-body); }
+.tab-btn.active { background: var(--bg2); color: var(--text); box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+.form-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-group.full { grid-column: 1 / -1; }
+.form-group label { font-size: 12px; font-weight: 600; color: var(--text2); text-transform: uppercase; letter-spacing: 0.5px; }
+.form-group input, .form-group select, .form-group textarea { padding: 10px 14px; border: 1.5px solid var(--border); border-radius: var(--radius-sm); background: var(--bg); color: var(--text); font-size: 14px; font-family: var(--font-body); outline: none; transition: border-color 0.2s; }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--accent); }
+.form-group textarea { resize: vertical; min-height: 120px; }
+.form-actions { display: flex; gap: 10px; margin-top: 20px; }
+.btn-submit { padding: 11px 24px; background: var(--accent); color: #fff; border: none; border-radius: var(--radius-sm); font-size: 14px; font-weight: 600; cursor: pointer; font-family: var(--font-body); transition: all 0.2s; }
+.btn-submit:hover { background: var(--accent2); transform: translateY(-1px); }
+.btn-cancel { padding: 11px 24px; background: var(--bg3); color: var(--text2); border: 1.5px solid var(--border); border-radius: var(--radius-sm); font-size: 14px; font-weight: 500; cursor: pointer; font-family: var(--font-body); transition: all 0.2s; }
+.btn-cancel:hover { background: var(--border); }
+.posts-list { display: flex; flex-direction: column; gap: 12px; }
+.post-list-item { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 16px 20px; display: flex; align-items: center; gap: 16px; transition: all 0.2s; }
+.post-list-item:hover { border-color: rgba(200,52,26,0.2); }
+.post-list-emoji { font-size: 32px; flex-shrink: 0; }
+.post-list-info { flex: 1; min-width: 0; }
+.post-list-title { font-weight: 600; font-size: 15px; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.post-list-meta { font-size: 12px; color: var(--text3); margin-top: 3px; }
+.post-list-actions { display: flex; gap: 6px; flex-shrink: 0; }
+.btn-edit, .btn-delete { padding: 6px 14px; border-radius: 7px; font-size: 12px; font-weight: 600; cursor: pointer; border: 1.5px solid; transition: all 0.2s; font-family: var(--font-body); }
+.btn-edit { background: none; color: var(--accent); border-color: rgba(200,52,26,0.3); }
+.btn-edit:hover { background: rgba(200,52,26,0.05); }
+.btn-delete { background: none; color: #dc2626; border-color: rgba(220,38,38,0.3); }
+.btn-delete:hover { background: rgba(220,38,38,0.05); }
+.stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 28px; }
+.stat-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 20px; }
+.stat-card-num { font-family: var(--font-display); font-size: 32px; font-weight: 900; color: var(--accent); }
+.stat-card-label { font-size: 12px; color: var(--text3); margin-top: 4px; }
+.toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(80px); background: var(--text); color: var(--bg); padding: 12px 24px; border-radius: 99px; font-size: 13px; font-weight: 500; z-index: 9999; transition: transform 0.3s; pointer-events: none; }
+.toast.show { transform: translateX(-50%) translateY(0); }
+.toast.success { background: #16a34a; color: #fff; }
+.toast.error { background: #dc2626; color: #fff; }
+.modal-ov { position: fixed; inset: 0; background: rgba(0,0,0,0.65); backdrop-filter: blur(6px); z-index: 2000; display: none; align-items: center; justify-content: center; padding: 16px; }
+.modal-ov.open { display: flex; }
+.modal-box { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 36px; width: 100%; max-width: 380px; }
+.modal-box h2 { font-family: 'Inter', serif; font-size: 26px; margin-bottom: 6px; color: var(--text); }
+.modal-box .modal-sub { font-size: 13px; color: var(--text3); margin-bottom: 24px; }
+.m-inp { width: 100%; padding: 11px 14px; border: 1.5px solid var(--border); border-radius: var(--radius-sm); background: var(--bg); color: var(--text); font-size: 14px; font-family: var(--font-body); outline: none; margin-bottom: 12px; box-sizing: border-box; transition: border-color 0.2s; }
+.m-inp:focus { border-color: var(--accent); }
+.m-btn { width: 100%; padding: 12px; background: var(--accent); color: #fff; border: none; border-radius: var(--radius-sm); font-size: 15px; font-weight: 700; cursor: pointer; font-family: var(--font-body); transition: all 0.2s; margin-top: 4px; }
+.m-btn:hover { background: var(--accent2); }
+.m-err { color: #dc2626; font-size: 13px; margin-top: 4px; display: none; padding: 8px 12px; background: rgba(220,38,38,0.08); border-radius: var(--radius-sm); }
+.ql-toolbar.ql-snow { background: var(--bg3); border-color: var(--border) !important; border-radius: var(--radius-sm) var(--radius-sm) 0 0; }
+.ql-container.ql-snow { border-color: var(--border) !important; border-radius: 0 0 var(--radius-sm) var(--radius-sm); font-family: var(--font-body) !important; font-size: 15px !important; }
+</style>
+</head>
+<body>
+<div class="admin-page">
+  <div class="admin-header">
+    <div>
+      <h1 class="admin-title">Admin Panel (GitHub)</h1>
+    </div>
+    <button class="btn-cancel" onclick="doAdminLogout()">Logout</button>
+  </div>
+
+  <div class="stats-grid" id="adminStats"></div>
+
+  <div class="admin-tabs">
+    <button class="tab-btn active" onclick="switchTab('add', this)">+ New Post</button>
+    <button class="tab-btn" onclick="switchTab('list', this)">All Posts</button>
+    <button class="tab-btn" onclick="switchTab('settings', this)">📊 Google Analytics</button>
+  </div>
+
+  <!-- ADD/EDIT FORM -->
+  <div id="tabAdd">
+    <div class="form-card">
+      <input type="hidden" id="editId">
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Post Title</label>
+          <input type="text" id="fTitle" placeholder="Post Title">
+        </div>
+        <div class="form-group">
+          <label>Category</label>
+          <select id="fCategory">
+            <option value="review">Card Review</option>
+            <option value="compare">Comparison</option>
+            <option value="tips">Tips & Tricks</option>
+            <option value="beginners">Beginners Guide</option>
+            <option value="offers">Offers & Deals</option>
+            <option value="news">Finance News</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Card Name</label>
+          <input type="text" id="fCardName" placeholder="Card Name">
+        </div>
+        <div class="form-group">
+          <label>Emoji / Icon</label>
+          <input type="text" id="fEmoji" placeholder="💳" maxlength="4">
+        </div>
+        <div class="form-group full">
+          <label>Thumbnail Image Upload</label>
+          <input type="hidden" id="fThumb">
+          <label for="thumbUpload" style="display:inline-flex;align-items:center;gap:8px;padding:9px 16px;background:var(--bg3);border:1.5px dashed var(--border);border-radius:var(--radius-sm);cursor:pointer;font-size:13px;color:var(--text2);transition:all .2s;width:100%;box-sizing:border-box">
+            📷 <span id="thumbFileName">Choose Thumbnail image...</span>
+          </label>
+          <input type="file" id="thumbUpload" accept="image/*" style="display:none" onchange="handleThumbUpload(this)">
+          <img id="thumbPreview" src="" alt="Preview" style="width:100%;max-height:180px;object-fit:cover;border-radius:var(--radius-sm);margin-top:8px;display:none;border:1px solid var(--border)">
+        </div>
+        <div class="form-group">
+          <label>Annual Fee</label>
+          <input type="text" id="fFee" placeholder="₹499/year">
+        </div>
+        <div class="form-group">
+          <label>Rating (1-5)</label>
+          <input type="number" id="fRating" min="1" max="5" step="0.1" placeholder="4.2">
+        </div>
+        <div class="form-group full">
+          <label>Short Excerpt</label>
+          <input type="text" id="fExcerpt" placeholder="Short summary about the card...">
+        </div>
+        <div class="form-group full">
+          <label>YouTube Video Link</label>
+          <input type="text" id="fYoutube" placeholder="https://youtube.com/watch?v=...">
+        </div>
+        <div class="form-group full">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 6px;">
+            <label style="margin:0;">Full Content</label>
+            <div style="font-size:12px; font-weight:600; color:var(--text2);">Words: <span id="wordCount">0</span></div>
+          </div>
+          <div style="display:flex;gap:8px;margin-bottom:8px;align-items:center">
+            <label for="imgFileInsert" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:var(--accent);color:#fff;border-radius:var(--radius-sm);font-size:12px;font-weight:600;cursor:pointer;white-space:nowrap">🖼️ Content Image</label>
+            <input type="file" id="imgFileInsert" accept="image/*" style="display:none" onchange="handleImgUpload(this)">
+          </div>
+          <div id="quillEditor" style="min-height: 250px; background: var(--bg); color: var(--text);"></div>
+        </div>
+        <div class="form-group">
+          <label>Pros (comma separated)</label>
+          <input type="text" id="fPros" placeholder="Pro 1, Pro 2">
+        </div>
+        <div class="form-group">
+          <label>Cons (comma separated)</label>
+          <input type="text" id="fCons" placeholder="Con 1, Con 2">
+        </div>
+        <div class="form-group full">
+          <label>Tips</label>
+          <textarea id="fTips" placeholder="Tips..."></textarea>
+        </div>
+        <div class="form-group full">
+          <label>Note</label>
+          <textarea id="fNote" placeholder="Note..."></textarea>
+        </div>
+      </div>
+      <div class="form-actions">
+        <button class="btn-submit" onclick="savePost()" id="submitBtn">Publish Post</button>
+        <button class="btn-cancel" onclick="clearForm()">Reset</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- POSTS LIST -->
+  <div id="tabList" style="display:none">
+    <div class="posts-list" id="adminPostsList"></div>
+  </div>
+
+  <!-- SETTINGS & ANALYTICS -->
+  <div id="tabSettings" style="display:none">
+    <div class="form-card">
+      <h2>📊 Google Analytics Dashboard</h2>
+      <p style="color:var(--text2);font-size:14px;margin-bottom:20px;">Provide your Google Looker Studio Embed URL to track website traffic here.</p>
+      
+      <div class="form-group full">
+        <label>Looker Studio (Data Studio) Embed URL</label>
+        <input type="text" id="fDataStudioUrl" placeholder="https://lookerstudio.google.com/embed/reporting/...">
+      </div>
+      
+      <div class="form-actions">
+        <button class="btn-submit" onclick="saveAnalyticsSettings()">Save Dashboard</button>
+      </div>
+    </div>
+
+    <div id="analyticsDashboard" style="margin-top:32px;display:none;">
+      <h3 style="margin-bottom:16px;">📈 Traffic Dashboard</h3>
+      <div style="background:var(--bg2);padding:8px;border-radius:var(--radius);border:1px solid var(--border);">
+        <iframe id="gaIframe" src="" width="100%" height="600" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ADMIN LOGIN MODAL -->
+<div class="modal-ov open" id="loginModal">
+  <div class="modal-box">
+    <h2>🔐 Admin Login</h2>
+    <p class="modal-sub">Enter your credentials</p>
+    <input class="m-inp" type="text" id="loginUser" placeholder="Username">
+    <input class="m-inp" type="password" id="loginPass" placeholder="Password">
+    <div class="m-err" id="loginErr">❌ Invalid Username or Password!</div>
+    <button class="m-btn" onclick="doAdminLogin()">Login</button>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/quill-image-resize-module@3.0.0/image-resize.min.js"></script>
+<script>
+let posts = [];
+// GITHUB SETTINGS - Set these before deploying
+const GITHUB_REPO = "Techievinay11/visuyahome";
+const GITHUB_TOKEN = "ghp_" + "JDAKno04Xery8lWTErmrhH8dycaUAH305HGm";
+
+let ghToken = '';
+let ghRepo = '';
+
+let postsFileSha = null;
+
+function utf8_to_b64(str) {
+  return window.btoa(unescape(encodeURIComponent(str)));
+}
+function b64_to_utf8(str) {
+  return decodeURIComponent(escape(window.atob(str)));
+}
+function getYoutubeId(url) {
+  if(!url) return null;
+  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+  const match = url.match(regExp);
+  return (match && match[2].length === 11) ? match[2] : null;
+}
+function formatDate(d) {
+  if (!d) return '';
+  const date = new Date(d);
+  return date.toLocaleDateString('en-IN', {day:'numeric', month:'long', year:'numeric'});
+}
+
+if(localStorage.getItem('nk_admin_logged_in') === '1') {
+  ghRepo = GITHUB_REPO;
+  ghToken = GITHUB_TOKEN;
+  document.getElementById('loginModal').classList.remove('open');
+  fetchPosts();
+}
+
+async function fetchPosts() {
+  try {
+    const res = await fetch(`https://api.github.com/repos/${ghRepo}/contents/data/posts.json`, {
+      headers: { 'Authorization': `token ${ghToken}`, 'Accept': 'application/vnd.github.v3+json' }
+    });
+    if (res.status === 404) { posts = []; updateStats(); renderAdminList(); return; }
+    if (!res.ok) throw new Error('Failed to fetch');
+    const data = await res.json();
+    postsFileSha = data.sha;
+    posts = JSON.parse(b64_to_utf8(data.content));
+    posts.sort((a,b) => b.id - a.id);
+    updateStats();
+    renderAdminList();
+  } catch (err) {
+    showToast('Failed to load posts from GitHub.', 'error');
+  }
+}
+
+async function commitPosts(message) {
+  const content = utf8_to_b64(JSON.stringify(posts, null, 2));
+  const body = { message, content };
+  if (postsFileSha) body.sha = postsFileSha;
+
+  try {
+    const res = await fetch(`https://api.github.com/repos/${ghRepo}/contents/data/posts.json`, {
+      method: 'PUT',
+      headers: { 'Authorization': `token ${ghToken}`, 'Accept': 'application/vnd.github.v3+json', 'Content-Type': 'application/json' },
+      body: JSON.stringify(body)
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.message);
+    postsFileSha = data.content.sha;
+    return true;
+  } catch (err) {
+    showToast('GitHub Commit Failed: ' + err.message, 'error');
+    return false;
+  }
+}
+
+async function doAdminLogin() {
+  const u = document.getElementById('loginUser').value.trim();
+  const p = document.getElementById('loginPass').value;
+  if(!u || !p) return;
+  
+  if (u === 'techievinay' && p === 'Techie143@@') {
+    localStorage.setItem('nk_admin_logged_in', '1');
+    ghRepo = GITHUB_REPO;
+    ghToken = GITHUB_TOKEN;
+    document.getElementById('loginModal').classList.remove('open');
+    showToast('Logged in successfully! 🎉', 'success');
+    fetchPosts();
+  } else {
+    document.getElementById('loginErr').style.display = 'block';
+  }
+}
+
+function doAdminLogout() {
+  localStorage.removeItem('nk_admin_logged_in');
+  window.location.reload();
+}
+
+function showToast(msg, type='') {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'toast '+(type||'');
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2800);
+}
+
+function switchTab(tab, btn) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('tabAdd').style.display = tab === 'add' ? 'block' : 'none';
+  document.getElementById('tabList').style.display = tab === 'list' ? 'block' : 'none';
+  const tabSet = document.getElementById('tabSettings');
+  if (tabSet) tabSet.style.display = tab === 'settings' ? 'block' : 'none';
+  if (tab === 'list') renderAdminList();
+  if (tab === 'settings') {
+    document.getElementById('fDataStudioUrl').value = localStorage.getItem('nk_ds_url') || '';
+    applyAnalyticsSettings();
+  }
+}
+
+function saveAnalyticsSettings() {
+  const dsUrl = document.getElementById('fDataStudioUrl').value.trim();
+  localStorage.setItem('nk_ds_url', dsUrl);
+  showToast('Dashboard URL saved! ✅', 'success');
+  applyAnalyticsSettings();
+}
+
+function applyAnalyticsSettings() {
+  const dsUrl = localStorage.getItem('nk_ds_url');
+  const dash = document.getElementById('analyticsDashboard');
+  const iframe = document.getElementById('gaIframe');
+  if (dash && iframe) {
+    if (dsUrl) {
+      dash.style.display = 'block';
+      iframe.src = dsUrl;
+    } else {
+      dash.style.display = 'none';
+      iframe.src = '';
+    }
+  }
+}
+
+function updateStats() {
+  const cats = {};
+  posts.forEach(p => cats[p.category] = (cats[p.category]||0)+1);
+  const topCat = Object.entries(cats).sort((a,b)=>b[1]-a[1])[0];
+  document.getElementById('adminStats').innerHTML = `
+    <div class="stat-card"><div class="stat-card-num">${posts.length}</div><div class="stat-card-label">Total Posts</div></div>
+    <div class="stat-card"><div class="stat-card-num">${topCat?topCat[1]:0}</div><div class="stat-card-label">Top Category: ${topCat?topCat[0]:'—'}</div></div>
+    <div class="stat-card"><div class="stat-card-num">${posts.filter(p=>p.rating>=4.5).length}</div><div class="stat-card-label">High Rated (4.5+)</div></div>
+  `;
+}
+
+function renderAdminList() {
+  const list = document.getElementById('adminPostsList');
+  if (posts.length === 0) {
+    list.innerHTML = '<p>No Posts Found</p>';
+    return;
+  }
+  list.innerHTML = posts.map(p => `
+    <div class="post-list-item">
+      <div class="post-list-emoji">${p.emoji||'💳'}</div>
+      <div class="post-list-info">
+        <div class="post-list-title">${p.title}</div>
+        <div class="post-list-meta">${p.category} • ${formatDate(p.date)}</div>
+      </div>
+      <div class="post-list-actions">
+        <button class="btn-edit" onclick="editPost(${p.id})">✏️ Edit</button>
+        <button class="btn-delete" onclick="deletePost(${p.id})">🗑️ Delete</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+async function savePost() {
+  const title = document.getElementById('fTitle').value.trim();
+  const content = window.quill ? window.quill.root.innerHTML : '';
+  const plainText = window.quill ? window.quill.getText().trim() : '';
+  if (!title || !plainText) { showToast('Title and content required!', 'error'); return; }
+
+  const btn = document.getElementById('submitBtn');
+  btn.textContent = 'Saving...'; btn.disabled = true;
+
+  const prosRaw = document.getElementById('fPros').value;
+  const consRaw = document.getElementById('fCons').value;
+  const pros = prosRaw ? prosRaw.split(',').map(s=>s.trim()).filter(Boolean) : [];
+  const cons = consRaw ? consRaw.split(',').map(s=>s.trim()).filter(Boolean) : [];
+  const ytUrl = document.getElementById('fYoutube').value.trim();
+
+  const postData = {
+    title, content,
+    category: document.getElementById('fCategory').value,
+    cardName: document.getElementById('fCardName').value,
+    emoji: document.getElementById('fEmoji').value || '💳',
+    thumb: document.getElementById('fThumb').value || '',
+    fee: document.getElementById('fFee').value,
+    rating: parseFloat(document.getElementById('fRating').value) || 4.0,
+    excerpt: document.getElementById('fExcerpt').value || plainText.substring(0,120)+'...',
+    youtubeId: getYoutubeId(ytUrl) || '',
+    youtubeUrl: ytUrl,
+    pros, cons,
+    tips: document.getElementById('fTips').value.trim(),
+    note: document.getElementById('fNote').value.trim(),
+    date: new Date().toISOString().split('T')[0]
+  };
+
+  const eid = document.getElementById('editId').value;
+  if (eid) {
+    postData.id = parseInt(eid);
+    const idx = posts.findIndex(x=>x.id === postData.id);
+    if(idx !== -1) posts[idx] = postData;
+  } else {
+    postData.id = Date.now();
+    posts.unshift(postData);
+  }
+
+  const ok = await commitPosts(eid ? `Update post: ${title}` : `Add post: ${title}`);
+  if(ok) {
+    showToast('Saved to GitHub! ✅', 'success');
+    clearForm();
+    updateStats();
+    if(document.getElementById('tabList').style.display === 'block') renderAdminList();
+  }
+  btn.textContent = 'Publish Post'; btn.disabled = false;
+}
+
+async function deletePost(id) {
+  if(!confirm('Are you sure you want to delete this post?')) return;
+  const idx = posts.findIndex(x=>x.id === id);
+  if(idx === -1) return;
+  const title = posts[idx].title;
+  posts.splice(idx, 1);
+  const ok = await commitPosts(`Delete post: ${title}`);
+  if(ok) {
+    showToast('Deleted from GitHub! ✅', 'success');
+    updateStats();
+    renderAdminList();
+  }
+}
+
+function editPost(id) {
+  const p = posts.find(x=>x.id===id);
+  if(!p) return;
+  document.getElementById('editId').value = p.id;
+  document.getElementById('fTitle').value = p.title;
+  document.getElementById('fCategory').value = p.category;
+  document.getElementById('fCardName').value = p.cardName||'';
+  document.getElementById('fEmoji').value = p.emoji||'💳';
+  document.getElementById('fThumb').value = p.thumb||'';
+  if(p.thumb){const pr=document.getElementById('thumbPreview');pr.src=p.thumb;pr.style.display='block';document.getElementById('thumbFileName').textContent='(saved image)';}
+  document.getElementById('fFee').value = p.fee||'';
+  document.getElementById('fRating').value = p.rating||4;
+  document.getElementById('fExcerpt').value = p.excerpt||'';
+  document.getElementById('fYoutube').value = p.youtubeUrl||'';
+  if (window.quill) {
+    if (!p.content) { window.quill.root.innerHTML = ''; }
+    else { window.quill.root.innerHTML = p.content; }
+    updateWordCount();
+  }
+  document.getElementById('fPros').value = Array.isArray(p.pros)?p.pros.join(', '):p.pros||'';
+  document.getElementById('fCons').value = Array.isArray(p.cons)?p.cons.join(', '):p.cons||'';
+  document.getElementById('fTips').value = p.tips||'';
+  document.getElementById('fNote').value = p.note||'';
+  document.getElementById('submitBtn').textContent = 'Update Post';
+  document.querySelector('[onclick="switchTab(\'add\', this)"]').click();
+  document.getElementById('tabAdd').scrollIntoView({behavior:'smooth'});
+}
+
+function clearForm() {
+  ['fTitle','fCardName','fEmoji','fFee','fRating','fExcerpt','fYoutube','fPros','fCons','fTips','fNote','fThumb'].forEach(id=>{
+    const el = document.getElementById(id);
+    if(el) el.value = id==='fEmoji'?'💳':id==='fRating'?'4.0':'';
+  });
+  if (window.quill) { window.quill.root.innerHTML = ''; updateWordCount(); }
+  const pr=document.getElementById('thumbPreview');
+  if(pr){pr.src='';pr.style.display='none';}
+  const tn=document.getElementById('thumbFileName');
+  if(tn) tn.textContent='Choose Thumbnail image...';
+  document.getElementById('editId').value='';
+  document.getElementById('fCategory').value='review';
+  document.getElementById('submitBtn').textContent='Publish Post';
+}
+
+function handleThumbUpload(input){
+  const file=input.files[0];
+  if(!file) return;
+  if(file.size>3*1024*1024){showToast('Image must be less than 3MB!','error');input.value='';return;}
+  const reader=new FileReader();
+  reader.onload=e=>{
+    document.getElementById('fThumb').value=e.target.result;
+    const pr=document.getElementById('thumbPreview');
+    pr.src=e.target.result;pr.style.display='block';
+    document.getElementById('thumbFileName').textContent=file.name;
+  };
+  reader.readAsDataURL(file);
+}
+
+function handleImgUpload(input){
+  const file=input.files[0];
+  if(!file) return;
+  if(file.size>2*1024*1024){showToast('Image must be less than 2MB!','error');input.value='';return;}
+  const reader=new FileReader();
+  reader.onload=e=>{
+    if (window.quill) {
+      const range = window.quill.getSelection(true);
+      window.quill.insertEmbed(range ? range.index : window.quill.getLength(), 'image', e.target.result);
+    }
+    input.value='';
+  };
+  reader.readAsDataURL(file);
+}
+
+var quill = new Quill('#quillEditor', {
+  theme: 'snow',
+  placeholder: 'Write the full article content here...',
+  modules: {
+    imageResize: { displaySize: true },
+    toolbar: [
+      [{ 'header': [1, 2, 3, false] }],
+      ['bold', 'italic', 'underline', 'strike'],
+      [{ 'color': [] }, { 'background': [] }],
+      [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+      ['link', 'blockquote', 'code-block'],
+      ['clean']
+    ]
+  }
+});
+window.quill = quill;
+
+function updateWordCount() {
+  var text = quill.getText().trim();
+  var count = text.length > 0 ? text.split(/\s+/).length : 0;
+  document.getElementById('wordCount').textContent = count;
+}
+quill.on('text-change', updateWordCount);
+
+</script>
+</body>
+</html>
