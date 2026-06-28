@@ -1003,7 +1003,7 @@ function renderPosts(filtered) {
     const cardImg = p.thumb
       ? `<img src="${p.thumb}" style="width:100%;aspect-ratio:1200/628;height:auto;object-fit:cover;display:block" alt="${p.title}" loading="lazy">`
       : `<div class="card-img-emoji">${p.emoji||'💳'}</div>`;
-    return `<div class="post-card${isFeatured?' featured':''}" onclick="showPost(${p.id})">
+    return `<div class="post-card${isFeatured?' featured':''}" onclick="showPost('${p.slug || p.id}')">
       ${cardImg}
       <div class="card-body">
         <div class="card-category">${catLabels[p.category] || p.category}</div>
@@ -1085,9 +1085,11 @@ function handleSearch(q) {
 }
 
 // SHOW POST DETAIL
-function showPost(id) {
-  currentPostId = id;
-  const p = posts.find(x => x.id === id);
+function showPost(idOrSlug) {
+  const p = posts.find(x => String(x.id) === String(idOrSlug) || x.slug === idOrSlug);
+  if (!p) return;
+  currentPostId = p.id;
+  const actualIdOrSlug = p.slug || p.id;
   if (!p) return;
   
   // Dynamic SEO Update
@@ -1131,7 +1133,7 @@ function showPost(id) {
 
   const ytHTML = p.youtubeId ? `<div class="yt-embed"><iframe src="https://www.youtube.com/embed/${p.youtubeId}" allowfullscreen></iframe></div>` : '';
   const rawBaseUrl = window.location.protocol === 'file:' ? 'https://visuya.com/' : (window.location.origin + window.location.pathname);
-  const rawShareUrl = rawBaseUrl + (rawBaseUrl.endsWith('/') ? '' : '/') + '?post=' + p.id;
+  const rawShareUrl = rawBaseUrl + (rawBaseUrl.endsWith('/') ? '' : '/') + '?post=' + actualIdOrSlug;
   const shareURL = encodeURIComponent(rawShareUrl);
   const shareTitle = encodeURIComponent(p.title);
   
@@ -1231,7 +1233,7 @@ function renderRecentPosts(currentId) {
         const cardImg = p.thumb
           ? `<img src="${p.thumb}" style="width:100%;aspect-ratio:1200/628;height:auto;object-fit:cover;display:block" alt="${p.title}" loading="lazy">`
           : `<div class="card-img-emoji" style="aspect-ratio:1200/628;height:auto;font-size:40px">${p.emoji||'💳'}</div>`;
-        return `<div class="post-card" onclick="showPost(${p.id})">
+        return `<div class="post-card" onclick="showPost('${p.slug || p.id}')">
           ${cardImg}
           <div class="card-body" style="padding:14px">
             <h3 class="card-title" style="font-size:15px;margin-bottom:6px">${p.title}</h3>
@@ -1415,7 +1417,7 @@ if (sharedPostId) {
     if (posts.length > 0) {
       clearInterval(checkPosts);
       if(!initialPostLoaded) {
-        showPost(parseInt(sharedPostId));
+        showPost(sharedPostId);
         initialPostLoaded = true;
       }
     }

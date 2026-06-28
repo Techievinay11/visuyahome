@@ -406,6 +406,15 @@ function renderAdminList() {
   `).join('');
 }
 
+function generateSlug(text) {
+  return text.toString().toLowerCase()
+    .replace(/\s+/g, '-')
+    .replace(/[^\w\-]+/g, '')
+    .replace(/\-\-+/g, '-')
+    .replace(/^-+/, '')
+    .replace(/-+$/, '');
+}
+
 async function savePost() {
   const title = document.getElementById('fTitle').value.trim();
   const content = window.quill ? window.quill.root.innerHTML : '';
