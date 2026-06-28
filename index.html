@@ -1184,41 +1184,6 @@ function copyPostLink(url) {
   }
 }
 
-" placeholder="Your Name">
-      <textarea id="commentText_${postId}" placeholder="Write your comment here..."></textarea>
-      <button class="btn-submit" onclick="addComment(${postId})" style="align-self:flex-start">Submit Comment</button>
-    </div>
-  `;
-  if (list.length > 0) {
-    html += '<div class="comment-list">' + list.map(c => `
-      <div class="comment-item">
-        <div class="comment-header"><span class="comment-name">${c.name}</span><span>${formatDate(c.date)}</span></div>
-        <div class="comment-text">${c.text}</div>
-      </div>
-    `).join('') + '</div>';
-  } else {
-    html += '<p style="color:var(--text3);font-size:13px">No comments yet. Be the first to comment!</p>';
-  }
-  document.getElementById('commentsSection').innerHTML = html;
-}
-
-function addComment(postId) {
-  const name = document.getElementById(`commentName_${postId}`).value.trim();
-  const text = document.getElementById(`commentText_${postId}`).value.trim();
-  if (!name || !text) { showToast('Please write your name and comment!', 'error'); return; }
-  
-  const newComment = { name, text, date: new Date().toISOString() };
-  if (!comments[postId]) comments[postId] = [];
-  comments[postId].push(newComment);
-  
-  db.ref('comments/' + postId).set(comments[postId]).then(() => {
-    showToast('Comment added!', 'success');
-    document.getElementById(`commentName_${postId}`).value = '';
-    document.getElementById(`commentText_${postId}`).value = '';
-  }).catch(err => {
-    showToast('Error: ' + err.message, 'error');
-  });
-}
 
 function renderRecentPosts(currentId) {
   const recent = posts.filter(p => p.id !== currentId).slice(0, 5);
@@ -1330,38 +1295,6 @@ function submitContact(){
   showToast('Your message has been sent! We will reply soon. ✅','success');
   ['cName','cEmail','cSubject','cMessage'].forEach(id=>document.getElementById(id).value='');
 }
-// THUMBNAIL FILE UPLOAD
-function handleThumbUpload(input){
-  const file=input.files[0];
-  if(!file) return;
-  if(file.size>3*1024*1024){showToast('Image must be less than 3MB!','error');input.value='';return;}
-  const reader=new FileReader();
-  reader.onload=e=>{
-    document.getElementById('fThumb').value=e.target.result;
-    const pr=document.getElementById('thumbPreview');
-    pr.src=e.target.result;pr.style.display='block';
-    document.getElementById('thumbFileName').textContent=file.name;
-    showToast('Thumbnail uploaded! ✅','success');
-  };
-  reader.readAsDataURL(file);
-}
-// CONTENT IMAGE FILE UPLOAD
-function handleImgUpload(input){
-  const file=input.files[0];
-  if(!file) return;
-  if(file.size>2*1024*1024){showToast('Image must be less than 2MB!','error');input.value='';return;}
-  const reader=new FileReader();
-  reader.onload=e=>{
-    if (window.quill) {
-      const range = window.quill.getSelection(true);
-      window.quill.insertEmbed(range ? range.index : window.quill.getLength(), 'image', e.target.result);
-    }
-    document.getElementById('imgFileName').textContent=file.name+' ✅';
-    showToast('Image added to content! ✅','success');
-    input.value='';
-  };
-  reader.readAsDataURL(file);
-}
 function filterCatFooter(cat){
   goHome();
   currentFilter=cat;
@@ -1390,22 +1323,6 @@ if (gaId && !document.getElementById('ga-script')) {
   document.head.appendChild(s2);
 }
 
-// QUILL INIT
-var quill = new Quill('#quillEditor', {
-  theme: 'snow',
-  placeholder: 'Write the full article content here...',
-  modules: {
-    imageResize: { displaySize: true },
-    toolbar: [
-      [{ 'header': [1, 2, 3, false] }],
-      ['bold', 'italic', 'underline', 'strike'],
-      [{ 'color': [] }, { 'background': [] }],
-      [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-      ['link', 'blockquote', 'code-block'],
-      ['clean']
-    ]
-  }
-});
 
 
 // HANDLE DIRECT POST LINKS
