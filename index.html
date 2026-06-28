@@ -1182,12 +1182,7 @@ function copyPostLink(url) {
   }
 }
 
-function renderComments(postId) {
-  const list = comments[postId] || [];
-  let html = `<h3>Comments (${list.length})</h3>`;
-  html += `
-    <div class="comment-form">
-      <input type="text" id="commentName_${postId}" placeholder="Your Name">
+" placeholder="Your Name">
       <textarea id="commentText_${postId}" placeholder="Write your comment here..."></textarea>
       <button class="btn-submit" onclick="addComment(${postId})" style="align-self:flex-start">Submit Comment</button>
     </div>
@@ -1409,14 +1404,7 @@ var quill = new Quill('#quillEditor', {
     ]
   }
 });
-window.quill = quill;
 
-function updateWordCount() {
-  var text = quill.getText().trim();
-  var count = text.length > 0 ? text.split(/\s+/).length : 0;
-  document.getElementById('wordCount').textContent = count;
-}
-quill.on('text-change', updateWordCount);
 
 // HANDLE DIRECT POST LINKS
 const urlParams = new URLSearchParams(window.location.search);
